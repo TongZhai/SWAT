@@ -101,6 +101,7 @@
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
       use parm
+      use oo_swat_util
 
       integer :: j
       real, dimension (mrcho) :: pdvar, pdvr
@@ -203,8 +204,17 @@
 	  else
 	    if (iscen == 1 .and. isproj == 0) then
            do kk=1,nstep
-             write (7,5001) j, subgis(j), iida, kk, rch_dakm(j),        
-     &                                    (rchhr(ii,j,kk), ii = 1, 7)
+!            write (7,5001) j, subgis(j), iida, kk, rch_dakm(j),        
+!    &                                    (rchhr(ii,j,kk), ii = 1, 7)
+             orchs(j)%subIndex = j
+             orchs(j)%gisIndex = subgis(j)
+             orchs(j)%iida = iida
+             orchs(j)%kk = kk
+             orchs(j)%rch_dakm = rch_dakm(j)
+             orchs(j)%itotr = 7
+             do ii=1, orchs(j)%itotr
+               orchs(j)%ovalues(ii) = rchhr(ii, j, kk)
+             end do
 	     end do
 	     endif
 	  endif
@@ -214,8 +224,19 @@
             pdvr(ii) = pdvar(ipdvar(ii))
           end do
           if (iscen == 1 .and. isproj == 0) then
-            if (icalen == 0) write (7,5000) j, subgis(j), iida,       
-     &             rch_dakm(j), (pdvr(ii), ii = 1, itotr)
+            if (icalen == 0) then 
+!             write (7,5000) j, subgis(j), iida,       
+!    &             rch_dakm(j), (pdvr(ii), ii = 1, itotr)
+              orchs(j)%subIndex = j
+              orchs(j)%gisIndex = subgis(j)
+              orchs(j)%iida = iida
+              orchs(j)%kk = kk
+              orchs(j)%rch_dakm = rch_dakm(j)
+              orchs(j)%itotr = 7
+              do ii=1, orchs(j)%itotr
+                orchs(j)%ovalues(ii) = rchhr(ii, j, kk)
+              end do
+            end if
             if(icalen == 1)write (7,5002) j, subgis(j), i_mo, icl(iida),
      &             iyr, rch_dakm(j), (pdvr(ii), ii = 1, itotr)
 !!    added for binary files 3/25/09 gsm line below and write (77777

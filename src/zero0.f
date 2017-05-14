@@ -539,7 +539,7 @@
       vfsch = 0.
       wt_shall = 0.
       wshd_aamon = 0.
-!      wshddayo = 0.
+      wshddayo = 0.
       yr_skip = 0
 
       return

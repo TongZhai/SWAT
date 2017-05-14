@@ -131,18 +131,20 @@
 
       do 
         a = ""
-        read (102,5002,iostat=eof) a
+        read (102,'(A)',iostat=eof) titldum
+        !read (102,5002,iostat=eof) a
+        read (titldum,5002) a
         if (eof < 0) exit
         if (a /= "*") then
-          backspace 102
+          !backspace 102
           idum = idum + 1
 
 !!    CEAP project
         if (isproj == 2) then
-          read (102,5003) a, icodes(idum), ihouts(idum), inum1s(idum),  
+          read (titldum,5003) a, icodes(idum), ihouts(idum), inum1s(idum),  
      &    inum2s(idum), inum3s(idum), rnum1s(idum), inum4s(idum)
 	  else
-          read (102,5000) a, icodes(idum), ihouts(idum), inum1s(idum),  
+          read (titldum,5000) a, icodes(idum), ihouts(idum), inum1s(idum),  
      &    inum2s(idum), inum3s(idum), rnum1s(idum), inum4s(idum),       
  !!    &    inum5s(idum), inum6s(idum), inum7s(idum), inum8s(idum)
      &    inum5s(idum), char6(idum), char7(idum), char8(idum)

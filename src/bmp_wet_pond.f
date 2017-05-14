@@ -83,7 +83,11 @@
       !pond width at the bottom
       a1 = 3. * beta * hp * (alpha + 1.)   
       b1 = 12. * alpha * (3.* vol / hp - 4.* beta**2 * hp**2)
-      pndwdth = (- a1 + sqrt(a1**2 + b1)) / (6.* alpha) !m
+      if ((a1**2 + b1) < 0 .or. alpha <= 0) then
+        pndwdth = 0
+      else
+        pndwdth = (- a1 + sqrt(a1**2 + b1)) / (6.* alpha) !m 
+      end if
       
       !surface area of the permanent pool
       surfa = wtp_pvol(sb) / wtp_pdepth(sb) !m2, 

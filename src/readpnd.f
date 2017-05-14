@@ -278,8 +278,9 @@
       if (titldum == '             '.or.titldum == 'Inputs used in')then 
         vselsetlpnd = 10.0
       else
-        backspace 104
-        read (104,*,iostat=eof) pnd_d50
+        !backspace 104
+        !read (104,*,iostat=eof) pnd_d50
+        read (titldum,*) pnd_d50
         pnd_d50mm = pnd_d50 / 1000.        !! micrometers to millimeters
         velsetlpnd = 24. * 411. * pnd_d50mm ** 2.
       endif    
@@ -506,8 +507,8 @@
          end if	   
 	end do 
 	if (num_noirr(i)>0) then
-	   backspace(104)
-	   read (104,*) (ri_nirr(i,k), k=1,num_noirr(i))
+	   !backspace(104)
+	   read (lus,*) (ri_nirr(i,k), k=1,num_noirr(i))
          if (eof < 0) exit
       end if
      

@@ -78,6 +78,7 @@
       use parm
 
       character (len=1) :: a
+      character (len=500) :: line
       integer :: k, kk1, kk2, iyp, idap, l, inum3sprev, ii
       integer :: ihour, imin, flag
       real :: rbsb
@@ -181,16 +182,20 @@
 
             !! read data from file
             if (ifirstpcp(k) == 0) then
-              read (100+k,5300) a
-              backspace (100+k)
+              read (100+k, '(A)') line
+              read (line,5300) a
+              !read (100+k,5300) a
+              !backspace (100+k)
               if (a /= " ") then               !subdaily precip on day
                 do ii = 1, nstep
                   flag = 0
                   ihour = 0
                   imin = 0
                   a = ""
-                  read (100+k,5200) iyp, idap, ihour, imin,             
-     &                                      (rainsb(l,ii), l = kk1, kk2)
+!                  read (100+k,5200) iyp, idap, ihour, imin,             
+!     &                                      (rainsb(l,ii), l = kk1, kk2)
+                  read (line,5200) iyp, idap, ihour, imin,
+     &                                  (rainsb(l,ii), l = kk1, kk2)
 				   if (iyp /= iyr .or. idap /= i) flag = 1
                   if (flag == 1) then
                     write (24,5400) iyr, i
@@ -205,7 +210,8 @@
                   end do
                 end do
               else                                 !no precip on day
-                read (100+k,5201) iyp, idap, (rmeas(l), l = kk1, kk2)
+!                read (100+k,5201) iyp, idap, (rmeas(l), l = kk1, kk2)
+                 read (line,5201) iyp, idap, (rmeas(l), l = kk1, kk2)
                   if (iyp /= iyr .or. idap /= i) flag = 1
                   if (flag == 1) then
                     write (24,5400) iyr, i

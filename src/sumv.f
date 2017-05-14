@@ -597,9 +597,9 @@
         wshddayo(110) = wshddayo(110) + no3gw(j) * hru_dafr(j)
         wshddayo(111) = wshddayo(111) + tileno3(j) * hru_dafr(j)
         wshddayo(113) = wshddayo(113) + gw_qdeep(j) * hru_dafr(j)     
-          do ii=1,mstdo
-            if(wshddayo(ii).ne.wshddayo(ii)) wshddayo(ii) = 0  !! float error debug, Jaehak Jeong, 2011 Feb
-          end do     
+!          do ii=1,mstdo
+!            if(wshddayo(ii).ne.wshddayo(ii)) wshddayo(ii) = 0  !! float error debug, Jaehak Jeong, 2011 Feb
+!          end do     
         
         else if (ffcst == 1) then
           if (j == 1) fcstcnt = fcstcnt + 1

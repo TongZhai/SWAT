@@ -538,8 +538,8 @@
           end if	   
        end do 
        if (len_trim(tlu).le.3) numlu = 0
-       backspace(103)
-       read (103,*) (lu_nodrain(kk), kk=1,numlu)
+       !backspace(103)
+       read (tlu,*) (lu_nodrain(kk), kk=1,numlu)
        
 
  !!   subdaily erosion modeling by Jaehak Jeong

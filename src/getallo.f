@@ -93,7 +93,6 @@
 
 
       use parm
-
       character (len=13) :: urbandb, plantdb, tilldb, pestdb, figfile,  
      &                      fertdb, subfile, fcstfile, bsnfile
       character (len=1) ::  a
@@ -102,6 +101,7 @@
       integer :: ipnum, ifnum, iunum, itnum, j, ifcst, fcsttot, k
 !     septic database
       integer  :: isnum   !! CS
+      character (len=80) :: line
 
 !!    initialize variables
       title = ""
@@ -128,6 +128,7 @@
 
       open (23,file="file.cio")
       read (23,6000) titldum
+      
       read (23,6000) titldum
       read (23,5100) title
       read (23,6000) titldum
@@ -366,11 +367,12 @@
       mhru1 = 1
       open (27,file=figfile)
       do while (icd > 0)
-        read (27,5002) a
+        read (27, '(A)') line
+        read (line,5002) a
         if (a /= "*") then
-          backspace 27
+          ! backspace 27
 
-          read (27,5001) a, icd, iht, inm1, inm2, inm3
+          read (line,5001) a, icd, iht, inm1, inm2, inm3
 
           select case (icd)
           case (1)                      !! icd = 1  SUBBASIN command

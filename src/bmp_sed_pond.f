@@ -156,8 +156,17 @@
         
         !Estimate TSS removal due to sedimentation
          if (spndconc>sp_sede(sb,kk)) then
-           ksed = min(134.8,41.1 * hpnd ** (-0.999))  !decay coefficient, Huber et al. 2006
-           td = qpnd / qpipe / nstep !detention time, day
+           !TZ: hpnd approaching zero, will make it larger than 134.8
+           ksed = 134.8
+           if (hpnd > 0) then
+             ksed = min(134.8,41.1 * hpnd ** (-0.999))  !decay coefficient, Huber et al. 2006
+           end if
+           if (qpipe > 0) then
+             td = qpnd / qpipe / nstep !detention time, day
+           else
+             !TZ when there is no flow, detention time should be equal to the sim step???
+             td = 0.
+           end if
            spndconc = (spndconc - sp_sede(sb,kk)) * exp(-ksed * td) + 
      &           sp_sede(sb,kk)
          endif
