@@ -192,10 +192,14 @@
                   ihour = 0
                   imin = 0
                   a = ""
-!                  read (100+k,5200) iyp, idap, ihour, imin,             
-!     &                                      (rainsb(l,ii), l = kk1, kk2)
-                  read (line,5200) iyp, idap, ihour, imin,
-     &                                  (rainsb(l,ii), l = kk1, kk2)
+                  if (ii.EQ.1) then
+                    read (line,5200)  iyp, idap, ihour, imin,
+     &                                (rainsb(l,ii), l = kk1, kk2)
+                  else
+                    read (100+k,5200) iyp, idap, ihour, imin,
+     &                                (rainsb(l,ii), l = kk1, kk2)
+                  end if
+
 				   if (iyp /= iyr .or. idap /= i) flag = 1
                   if (flag == 1) then
                     write (24,5400) iyr, i

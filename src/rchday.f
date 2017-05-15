@@ -232,9 +232,9 @@
               orchs(j)%iida = iida
               orchs(j)%kk = kk
               orchs(j)%rch_dakm = rch_dakm(j)
-              orchs(j)%itotr = 7
+              orchs(j)%itotr = itotr
               do ii=1, orchs(j)%itotr
-                orchs(j)%ovalues(ii) = rchhr(ii, j, kk)
+                orchs(j)%ovalues(ii) = pdvr(ii)
               end do
             end if
             if(icalen == 1)write (7,5002) j, subgis(j), i_mo, icl(iida),

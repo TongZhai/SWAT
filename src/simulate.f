@@ -94,12 +94,15 @@
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
       use parm
+      use oo_swat_util
 
       integer :: idlst, j, iix, iiz, ic, mon, ii
       real :: xx
       integer :: eof
       
       eof = 0
+      
+      call create_rch_outputs(subtot, itotr)
 
       do curyr = 1, nbyr
         write (*,1234) curyr

@@ -1881,14 +1881,6 @@
        tillage_days = 0
        tillage_factor = 0.
 
-      allocate(orchs(subtot))
-      !allocate(olinks(Nobjects(LINK)))
-      do j= 1, subtot
-        !orchs%datatype = E_NODE
-        orchs%subIndex = j
-        allocate(orchs(j)%ovalues(itotr))
-      end do
-
       !! By Zhang for C/N cycling
       !! ============================
       	  
