@@ -136,8 +136,10 @@
       if (eof < 0) exit
       read (108,*,iostat=eof) escohru
       if (eof < 0) exit
+      !escohru = 0.05                       !!!! remove after test
       read (108,*,iostat=eof) epcohru 
       if (eof < 0) exit
+      !epsohru = 0.05						 !!!! remove after test
       read (108,*,iostat=eof) rsdin(ihru) 
       if (eof < 0) exit
       read (108,*,iostat=eof) erorgn(ihru) 

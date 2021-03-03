@@ -73,6 +73,7 @@
       
 !!  added headers TOTAL N/TOTALP/NO3 Concentration TO HEADING FOR OUTPUT.RCH GSM 10/26/2011
 !!    column headers for reach output file
+
       hedr = (/"  FLOW_INcms"," FLOW_OUTcms","     EVAPcms",            
      &         "    TLOSScms","  SED_INtons"," SED_OUTtons",            
      &         " SEDCONCmg/L","   ORGN_INkg","  ORGN_OUTkg",            

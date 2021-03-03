@@ -50,8 +50,7 @@
       use parm
             
       allocate (alph_e(mhru))
-      allocate (co_p(mhru))
-      
+      allocate (co_p(mhru))      
       
 !! initialize variables    
       mvaro = 33
