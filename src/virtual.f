@@ -278,7 +278,7 @@
         sub_subp(sb) = sub_subp(sb) + subp(j) * hru_fr(j)
         sub_snom(sb) = sub_snom(sb) + snomlt * hru_fr(j)
         sub_pet(sb) = sub_pet(sb) + pet_day * hru_fr(j)
-        sub_etday(sb) = sub_etday(sb) + etday * hru_fr(j)
+        sub_etday(sb) = sub_etday(sb) + etday * hru_fr(j) 
         sub_sumfc(sb) = sub_sumfc(sb) + sol_sumfc(j) * hru_fr(j)
         sub_sw(sb) = sub_sw(sb) + sol_sw(j) * hru_fr(j)
         sub_sep(sb) = sub_sep(sb) + sepbtm(j) * hru_fr(j)

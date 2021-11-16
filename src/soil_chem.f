@@ -241,7 +241,7 @@
 
         !! Set active pool based on dynamic PSP MJW
 		
-	    if (sol_P_model == 0) then 
+	    if (sol_P_model == 0) then  
 	      !! Allow Dynamic PSP Ratio
             !! convert to concentration
             solp = sol_solp(j,i) / conv_wt(j,i) * 1000000.

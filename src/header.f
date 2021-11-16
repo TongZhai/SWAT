@@ -44,7 +44,7 @@
      &         "NO3GWkg/ha"," SOLPkg/ha"," P_GWkg/ha","    W_STRS",     
      &         "  TMP_STRS","    N_STRS","    P_STRS","  BIOMt/ha",     
      &         "       LAI","   YLDt/ha","  BACTPct ","  BACTLPct",     
-     &         " WTAB CLIm"," WTAB SOLm","     SNOmm"," CMUPkg/ha",     
+     &         " WTAB_CLIm"," WTAB_SOLm","     SNOmm"," CMUPkg/ha",     
      &         "CMTOTkg/ha","   QTILEmm"," TNO3kg/ha"," LNO3kg/ha",     
      &         "  GW_Q_Dmm"," LATQCNTmm"," TVAPkg/ha"/)
 
